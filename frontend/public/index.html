@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manvendra Singh Shekhawat | Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#6366f1',
+                        secondary: '#8b5cf6',
+                        dark: '#0f172a',
+                        accent: '#0ea5e9'
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'text-gradient': 'text-gradient 3s linear infinite',
+                        'border-glow': 'border-glow 2s ease-in-out infinite alternate',
+                        'wiggle': 'wiggle 1s ease-in-out infinite',
+                        'fade-in': 'fadeIn 0.5s ease-in forwards',
+                        'bounce': 'bounce 1s infinite',
+                        'skill-float': 'skill-float 6s ease-in-out infinite',
+                        'skill-spin': 'skill-spin 20s linear infinite',
+                        'tilt': 'tilt 10s infinite linear',
+                        'pulse-glow': 'pulse-glow 2s infinite'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        },
+                        'text-gradient': {
+                            '0%': { 'background-position': '0% 50%' },
+                            '100%': { 'background-position': '100% 50%' }
+                        },
+                        'border-glow': {
+                            '0%': { 'box-shadow': '0 0 5px #6366f1, 0 0 10px #8b5cf6' },
+                            '100%': { 'box-shadow': '0 0 15px #6366f1, 0 0 30px #8b5cf6' }
+                        },
+                        wiggle: {
+                            '0%, 100%': { transform: 'rotate(-3deg)' },
+                            '50%': { transform: 'rotate(3deg)' },
+                        },
+                        fadeIn: {
+                            'from': { opacity: 0, transform: 'translateY(10px)' },
+                            'to': { opacity: 1, transform: 'translateY(0)' }
+                        },
+                        bounce: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        },
+                        'skill-float': {
+                            '0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+                            '25%': { transform: 'translateY(-10px) rotate(5deg)' },
+                            '50%': { transform: 'translateY(-20px) rotate(0deg)' },
+                            '75%': { transform: 'translateY(-10px) rotate(-5deg)' },
+                        },
+                        'skill-spin': {
+                            '0%': { transform: 'rotate(0deg)' },
+                            '100%': { transform: 'rotate(360deg)' },
+                        },
+                        tilt: {
+                            '0%, 100%': { transform: 'rotate(0deg)' },
+                            '25%': { transform: 'rotate(1deg)' },
+                            '75%': { transform: 'rotate(-1deg)' },
+                        },
+                        'pulse-glow': {
+                            '0%': {
+                                'transform': 'scale(1)',
+                                'box-shadow': '0 0 0 0 rgba(99, 102, 241, 0.7)'
+                            },
+                            '70%': {
+                                'transform': 'scale(1.05)',
+                                'box-shadow': '0 0 0 15px rgba(99, 102, 241, 0)'
+                            },
+                            '100%': {
+                                'transform': 'scale(1)',
+                                'box-shadow': '0 0 0 0 rgba(99, 102, 241, 0)'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-dark text-gray-200">
+    <!-- Navigation -->
+    <nav class="fixed w-full glass-effect backdrop-blur-lg py-4 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center">
+                <div class="flex items-center">
+                    <a href="#" class="text-2xl font-bold text-gradient">MS<span class="text-accent">S</span></a>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link text-gray-300 hover:text-primary font-medium">Home</a>
+                    <a href="#about" class="nav-link text-gray-300 hover:text-primary font-medium">About</a>
+                    <a href="#skills" class="nav-link text-gray-300 hover:text-primary font-medium">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-300 hover:text-primary font-medium">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-300 hover:text-primary font-medium">Contact</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="menu-btn" class="text-gray-300">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden hidden glass-effect py-4 px-4 mt-2 rounded-lg">
+            <div class="flex flex-col space-y-4">
+                <a href="#home" class="nav-link text-gray-300 hover:text-primary">Home</a>
+                <a href="#about" class="nav-link text-gray-300 hover:text-primary">About</a>
+                <a href="#skills" class="nav-link text-gray-300 hover:text-primary">Skills</a>
+                <a href="#projects" class="nav-link text-gray-300 hover:text-primary">Projects</a>
+                <a href="#contact" class="nav-link text-gray-300 hover:text-primary">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION-->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 relative overflow-hidden">
+        <div class="absolute inset-0 z-0 pointer-events-none">
+            <div
+                class="absolute top-20 left-10 w-64 h-64 bg-primary rounded-full filter blur-3xl opacity-20 animate-fade-in-slow">
+            </div>
+            <div
+                class="absolute bottom-10 right-10 w-80 h-80 bg-secondary rounded-full filter blur-3xl opacity-20 animate-fade-in-slow delay-500">
+            </div>
+            <div
+                class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-accent rounded-full filter blur-3xl opacity-10 animate-fade-in-slow delay-1000">
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-12 md:mb-0">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 animate-slide-up">
+                        Hi, I'm <span class="text-gradient">Manvendra Singh Shekhawat</span>
+                    </h1>
+                    <h2 class="text-2xl md:text-3xl text-gray-400 mb-6 animate-slide-up delay-200">
+                        Full Stack Developer <br>
+                        <span class="text-primary">Tech Enthusiast</span>
+                    </h2>
+                    <p class="text-lg text-gray-400 mb-8 max-w-xl animate-slide-up delay-400">
+                        I create stunning web experiences with cutting-edge technologies.
+                        Passionate about building innovative solutions that make an impact.
+                    </p>
+                    <div class="flex space-x-4 animate-slide-up delay-600">
+                        <a href="#contact"
+                            class="gradient-bg text-white px-6 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105 hover:brightness-110">
+                            Hire Me
+                        </a>
+                        <a href="#projects"
+                            class="border-2 border-primary text-primary px-6 py-3 rounded-full font-medium hover:bg-primary/10 transition duration-300 transform hover:scale-105 hover:brightness-110">
+                            View Projects
+                        </a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center">
+                    <div class="relative animate-zoom-in">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-2xl opacity-30">
+                        </div>
+                        <div
+                            class="relative w-64 h-64 md:w-80 md:h-80 bg-gray-200 border-4 border-white rounded-full overflow-hidden shadow-2xl glow-border">
+                            <img src="HAR_0932.JPG" alt="Manvendra Singh Shekhawat"
+                                class="w-full h-full object-cover rounded-full" />
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-16 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 section-title animate-slide-up">
+                    About Me
+                </h2>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-2 glass-effect p-8 rounded-2xl shadow-xl animate-fade-in">
+                    <h3 class="text-2xl font-bold text-white mb-6">
+                        Hey there! I'm <span class="text-primary">Manvendra Singh Shekhawat</span>
+                    </h3>
+                    <p class="text-gray-300 mb-6">
+                        A tech-savvy Full Stack Web Developer and a B.Tech CSE student at BIT Mesra (Batch of 2026).
+                        I specialize in turning bold ideas into real-world, responsive web apps with clean code and
+                        creative vibes.
+                    </p>
+
+                    <p class="text-gray-300 mb-6">
+                        My journey in technology began with a fascination for how things work behind the scenes.
+                        This curiosity has driven me to explore both frontend and backend development, creating
+                        seamless experiences that bridge design and functionality.
+                    </p>
+
+                    <p class="text-gray-300 mb-6">
+                        Beyond coding, I'm passionate about continuous learning and staying updated with the latest
+                        industry trends. I believe in writing clean, maintainable code that not only solves problems
+                        but also contributes to a better digital ecosystem.
+                    </p>
+
+                    <p class="text-gray-300 mb-6">
+                        I thrive in collaborative environments and enjoy working with diverse teams to bring ideas to
+                        life.
+                        My adaptability allows me to quickly learn new technologies and frameworks, ensuring I stay
+                        ahead in the fast-paced tech world.
+                    </p>
+
+                    <p class="text-gray-300 mb-6">
+                        I have a keen eye for design and usability, always striving to create interfaces that are both
+                        visually appealing and user-friendly.
+                        My experience spans across building scalable RESTful APIs, integrating third-party services, and
+                        deploying applications to the cloud.
+                    </p>
+
+                    <p class="text-gray-300 mb-6">
+                        When I'm not immersed in code, you can find me:
+                    </p>
+                    <ul class="text-gray-300 mb-6 list-disc list-inside space-y-2">
+                        <li><span class="text-primary">🏀 Competing in national-level basketball tournaments</span> -
+                            Building teamwork and resilience</li>
+                        <li><span class="text-primary">🎖️ Serving as an NCC cadet</span> - Cultivating discipline and
+                            leadership</li>
+                        <li><span class="text-primary">📚 Participating in national-level academic competitions</span> -
+                            Honing attention to detail</li>
+                        <li><span class="text-primary">🧠 Solving algorithmic challenges</span> - Sharpening my
+                            problem-solving skills</li>
+                        <li><span class="text-primary">🎨 Exploring digital art & UI design</span> - Enhancing
+                            creativity and aesthetics</li>
+                        <li><span class="text-primary">🌏 Travelling & learning about new cultures</span> - Broadening
+                            my perspective</li>
+                    </ul>
+
+                    <p class="text-gray-300">
+                        Whether it's creating a killer UI or optimizing a backend pipeline, I bring passion, precision,
+                        and performance to the table.
+                        <span class="text-primary font-medium">Let's connect and build something legendary.</span>
+                    </p>
+                </div>
+
+                <div class="space-y-8 animate-fade-in delay-400">
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl">
+                        <h3 class="text-xl font-bold text-white mb-4">Education</h3>
+                        <div class="space-y-6">
+                            <div class="flex items-center pb-6">
+                                <div class="timeline-dot bg-primary/30" style="position:static; margin-right:0.75rem;">
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-primary">B.Tech in Computer Science</h4>
+                                    <p class="text-gray-400">Birla Institute of Technology, Mesra</p>
+                                    <p class="text-sm text-gray-500">2022 - 2026</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="timeline-dot bg-secondary/30"
+                                    style="position:static; margin-right:0.75rem;"></div>
+                                <div>
+                                    <h4 class="font-bold text-primary">Higher Secondary Education</h4>
+                                    <p class="text-gray-400">St. Mary's convent Sr. Sec. School, Jaipur</p>
+                                    <p class="text-sm text-gray-500">2020 - 2022</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl">
+                        <h3 class="text-xl font-bold text-white mb-4">Experience</h3>
+                        <div class="space-y-4">
+                            <div>
+                                <h4 class="font-bold text-primary">Web Development Intern</h4>
+                                <p class="text-gray-400">Polysol Infotech Pvt. Ltd.</p>
+                                <p class="text-sm text-gray-500">Summer 2025</p>
+                                <p class="text-gray-300 mt-2">Developed responsive user interfaces and optimized backend
+                                    APIs for client projects</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="glass-effect p-6 rounded-2xl shadow-xl">
+                        <h3 class="text-xl font-bold text-white mb-4">Certifications</h3>
+                        <div class="space-y-3">
+                            <div class="flex items-start">
+                                <i class="fas fa-certificate text-primary mt-1 mr-3"></i>
+                                <a href="https://drive.google.com/file/d/1gRGi0ptDmnJkaXojRlsHwAKHTfNyWjnR/view?usp=sharing"
+                                    target="_blank" class="text-gray-300">Smart India Hackathon - Govt. of India</a>
+                            </div>
+                            <div class="flex items-start">
+                                <i class="fas fa-certificate text-primary mt-1 mr-3"></i>
+                                <a href="https://drive.google.com/file/d/1rgtm_8KNQixJNF7CXQ9JAQnDCBgpl5Tu/view?usp=sharing"
+                                    target="_blank" class="text-gray-300">
+                                    Software Engineer - HackerRank
+                                </a>
+                            </div>
+
+                            <div class="flex items-start">
+                                <i class="fas fa-certificate text-primary mt-1 mr-3"></i>
+                                <a href="https://drive.google.com/file/d/1-Q__pXf4MUFNBCcDSU5wLtlresEtI-Ah/view?usp=sharing"
+                                    target="_blank" class="text-gray-300">
+                                    Cybersecurity - TechMahindra
+                                </a>
+                            </div>
+
+                            <div class="flex items-start">
+                                <i class="fas fa-certificate text-primary mt-1 mr-3"></i>
+                                <a href="https://drive.google.com/file/d/1woLhEivYdTLYCKQkcmw_ePR9OT4AdOfo/view?usp=sharing"
+                                    target="_blank" class="text-gray-300">
+                                    Machine Learning - Reliance
+                                </a>
+                            </div>
+
+                            <div class="flex items-start">
+                                <i class="fas fa-certificate text-primary mt-1 mr-3"></i>
+                                <a href="https://drive.google.com/file/d/1YYr5xTmrI06AQAtBOyUUCsejhNBHgzTk/view?usp=sharing"
+                                    target="_blank" class="text-gray-300">
+                                    Spell Bee National - Spell Bee
+                                </a>
+                            </div>
+
+                            <div class="flex items-start">
+                                <i class="fas fa-certificate text-primary mt-1 mr-3"></i>
+                                <a href="https://drive.google.com/file/d/1XzHV6JuzNR2dJ-mQ-pS5vQlpQcoQKLXb/view?usp=sharing"
+                                    target="_blank" class="text-gray-300">
+                                    NCC A Certificate - NCC
+                                </a>
+                            </div>
+
+                            <div class="flex items-start">
+                                <i class="fas fa-certificate text-primary mt-1 mr-3"></i>
+                                <a href="https://drive.google.com/file/d/1YeNWJQ6Z_PbUSyrhl34bdqrJPmdwOOPd/view?usp=sharing"
+                                    target="_blank" class="text-gray-300">
+                                    Basketball National - School Games Federation of India
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section  -->
+    <section id="skills" class="py-16 bg-gray-900/50 relative overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div
+                class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary rounded-full filter blur-3xl opacity-10 animate-pulse-slow">
+            </div>
+            <div
+                class="absolute bottom-1/3 right-1/3 w-80 h-80 bg-secondary rounded-full filter blur-3xl opacity-10 animate-pulse-slow">
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 section-title animate-slide-up">
+                    My Technical Skills
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto animate-slide-up delay-200">
+                    I've mastered a diverse set of technologies to build full-stack applications
+                </p>
+            </div>
+
+            <!--  Skills -->
+            <div class="relative flex justify-center items-center mb-16">
+               
+            </div>
+
+            <!-- Skills  -->
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+                <div
+                    class="card p-6 text-center glass-effect shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-primary/40 animate-slide-up">
+                    <div
+                        class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 skill-icon pulse-glow">
+                        <i class="fab fa-html5 text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">HTML5</h3>
+                    <p class="text-gray-400">Semantic markup & modern structure</p>
+                </div>
+                <div
+                    class="card p-6 text-center glass-effect shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-secondary/40 animate-slide-up delay-200">
+                    <div
+                        class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4 skill-icon pulse-glow">
+                        <i class="fab fa-css3-alt text-3xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">CSS3</h3>
+                    <p class="text-gray-400">Responsive design & animations</p>
+                </div>
+                <div
+                    class="card p-6 text-center glass-effect shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-yellow-400/40 animate-slide-up delay-400">
+                    <div
+                        class="w-16 h-16 bg-yellow-400/10 rounded-full flex items-center justify-center mx-auto mb-4 skill-icon pulse-glow">
+                        <i class="fab fa-js text-3xl text-yellow-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">JavaScript</h3>
+                    <p class="text-gray-400">ES6+ & modern frameworks</p>
+                </div>
+                <div
+                    class="card p-6 text-center glass-effect shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-green-400/40 animate-slide-up delay-600">
+                    <div
+                        class="w-16 h-16 bg-green-400/10 rounded-full flex items-center justify-center mx-auto mb-4 skill-icon pulse-glow">
+                        <i class="fab fa-node-js text-3xl text-green-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Node.js</h3>
+                    <p class="text-gray-400">Server-side JavaScript runtime</p>
+                </div>
+                <div
+                    class="card p-6 text-center glass-effect shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-secondary/40 animate-slide-up delay-800">
+                    <div
+                        class="w-16 h-16 bg-secondary/10 rounded-full flex items-center justify-center mx-auto mb-4 skill-icon pulse-glow">
+                        <i class="fas fa-database text-3xl text-secondary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">MongoDB</h3>
+                    <p class="text-gray-400">NoSQL database solutions</p>
+                </div>
+                <div
+                    class="card p-6 text-center glass-effect shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-primary/40 animate-slide-up delay-1000">
+                    <div
+                        class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4 skill-icon pulse-glow">
+                        <i class="fas fa-server text-3xl text-primary"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Express.js</h3>
+                    <p class="text-gray-400">Web application framework</p>
+                </div>
+                <div
+                    class="card p-6 text-center glass-effect shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-blue-400/40 animate-slide-up delay-1200">
+                    <div
+                        class="w-16 h-16 bg-blue-400/10 rounded-full flex items-center justify-center mx-auto mb-4 skill-icon pulse-glow">
+                        <i class="fas fa-database text-3xl text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">MySQL</h3>
+                    <p class="text-gray-400">Relational database management</p>
+                </div>
+                <div
+                    class="card p-6 text-center glass-effect shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-orange-400/40 animate-slide-up delay-1400">
+                    <div
+                        class="w-16 h-16 bg-orange-400/10 rounded-full flex items-center justify-center mx-auto mb-4 skill-icon pulse-glow">
+                        <i class="fas fa-bolt text-3xl text-orange-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Postman</h3>
+                    <p class="text-gray-400">API testing & documentation</p>
+                </div>
+                <div
+                    class="card p-6 text-center glass-effect shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-gray-400/40 animate-slide-up delay-1600">
+                    <div
+                        class="w-16 h-16 bg-gray-400/10 rounded-full flex items-center justify-center mx-auto mb-4 skill-icon pulse-glow">
+                        <i class="fas fa-code text-3xl text-gray-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">C Programming</h3>
+                    <p class="text-gray-400">Systems programming & algorithms</p>
+                </div>
+                <div
+                    class="card p-6 text-center glass-effect shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-indigo-400/40 animate-slide-up delay-1800">
+                    <div
+                        class="w-16 h-16 bg-indigo-400/10 rounded-full flex items-center justify-center mx-auto mb-4 skill-icon pulse-glow">
+                        <i class="fas fa-laptop-code text-3xl text-indigo-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">C++</h3>
+                    <p class="text-gray-400">Object-oriented programming</p>
+                </div>
+                <div
+                    class="card p-6 text-center glass-effect shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-pink-400/40 animate-slide-up delay-2000">
+                    <div
+                        class="w-16 h-16 bg-pink-400/10 rounded-full flex items-center justify-center mx-auto mb-4 skill-icon pulse-glow">
+                        <i class="fas fa-brain text-3xl text-pink-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">DSA</h3>
+                    <p class="text-gray-400">Data Structures & Algorithms</p>
+                </div>
+                <div
+                    class="card p-6 text-center glass-effect shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-gray-400/40 animate-slide-up delay-2200">
+                    <div
+                        class="w-16 h-16 bg-gray-400/10 rounded-full flex items-center justify-center mx-auto mb-4 skill-icon pulse-glow">
+                        <i class="fab fa-git-alt text-3xl text-gray-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Git & GitHub</h3>
+                    <p class="text-gray-400">Version control & collaboration</p>
+                </div>
+            </div>
+
+            <!-- Skill Badges -->
+            <div class="mt-12 flex flex-wrap justify-center gap-3">
+                <div class="skill-badge px-4 py-2 rounded-full text-center glass-effect hover:bg-primary/20 transition">
+                    HTML</div>
+                <div
+                    class="skill-badge px-4 py-2 rounded-full text-center glass-effect hover:bg-secondary/20 transition">
+                    CSS</div>
+                <div
+                    class="skill-badge px-4 py-2 rounded-full text-center glass-effect hover:bg-yellow-400/20 transition">
+                    JavaScript</div>
+                <div
+                    class="skill-badge px-4 py-2 rounded-full text-center glass-effect hover:bg-green-400/20 transition">
+                    Node.js</div>
+                <div class="skill-badge px-4 py-2 rounded-full text-center glass-effect hover:bg-primary/20 transition">
+                    Express.js</div>
+                <div
+                    class="skill-badge px-4 py-2 rounded-full text-center glass-effect hover:bg-secondary/20 transition">
+                    MongoDB</div>
+                <div
+                    class="skill-badge px-4 py-2 rounded-full text-center glass-effect hover:bg-blue-400/20 transition">
+                    MySQL</div>
+                <div class="skill-badge px-4 py-2 rounded-full text-center glass-effect hover:bg-primary/20 transition">
+                    React</div>
+                <div
+                    class="skill-badge px-4 py-2 rounded-full text-center glass-effect hover:bg-gray-400/20 transition">
+                    C</div>
+                <div
+                    class="skill-badge px-4 py-2 rounded-full text-center glass-effect hover:bg-indigo-400/20 transition">
+                    C++</div>
+                <div
+                    class="skill-badge px-4 py-2 rounded-full text-center glass-effect hover:bg-pink-400/20 transition">
+                    DSA</div>
+                <div
+                    class="skill-badge px-4 py-2 rounded-full text-center glass-effect hover:bg-gray-400/20 transition">
+                    Git</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 section-title animate-on-scroll">
+                    Featured Projects
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto animate-on-scroll">
+                    Some of my recent work that showcases my skills and creativity
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card h-80 animate-on-scroll">
+                    <div class="project-inner relative w-full h-full">
+                        <div class="project-front glass-effect w-full h-full rounded-xl p-6 flex flex-col">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-cloud-sun text-2xl text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Weather App</h3>
+                            <p class="text-gray-400 flex-grow">Interactive Weather Forecast App with Real-Time Location
+                                and City-Based Search.</p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">MERN
+                                    Stack</span>
+                                <span class="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">Postman
+                                    API</span>
+                            </div>
+                        </div>
+                        <div class="project-back w-full h-full p-6 flex flex-col justify-center items-center">
+                            <h3 class="text-xl font-bold text-white mb-4">Weather App</h3>
+                            <p class="text-gray-300 text-center mb-6">Built with HTML, CSS, and JavaScript. Features
+                                include real-time weather data, geolocation-based updates, and city search
+                                functionality.</p>
+                            <div class="flex space-x-4">
+                                <a href="https://weather-appmss.vercel.app/"
+                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm">Live Demo</a>
+                                <a href="https://github.com/Manvendra-23/Weather-App"
+                                    class="border border-primary text-primary px-4 py-2 rounded-full text-sm">Source
+                                    Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card h-80 animate-on-scroll">
+                    <div class="project-inner relative w-full h-full">
+                        <div class="project-front glass-effect w-full h-full rounded-xl p-6 flex flex-col">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-tasks text-2xl text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Password Generator</h3>
+                            <p class="text-gray-400 flex-grow">Customizable password generator with strength meter and
+                                copy feature — built with a clean, responsive UI..</p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">HTML,CSS</span>
+                                <span
+                                    class="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="project-back w-full h-full p-6 flex flex-col justify-center items-center">
+                            <h3 class="text-xl font-bold text-white mb-4">Password Generator</h3>
+                            <p class="text-gray-300 text-center mb-6">Password generator with real-time strength meter,
+                                customizable options, and copy-to-clipboard support.</p>
+                            <div class="flex space-x-4">
+                                <a href="https://password-1generator.vercel.app/"
+                                    class="bg-primary text-white px-4 py-2 rounded-full text-sm">Live Demo</a>
+                                <a href="https://github.com/Manvendra-23/Password-Generator"
+                                    class="border border-primary text-primary px-4 py-2 rounded-full text-sm">Source
+                                    Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card h-80 animate-on-scroll">
+                    <div class="project-inner relative w-full h-full">
+                        <div class="project-front glass-effect w-full h-full rounded-xl p-6 flex flex-col">
+                            <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+                                <i class="fas fa-heartbeat text-2xl text-primary"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-2">Blog App</h3>
+                            <p class="text-gray-400 flex-grow">Full-stack Blog application with post creation, real-time
+                                comments, and like interactions.</p>
+                            <div class="flex flex-wrap gap-2 mt-4">
+                                <span class="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">MERN
+                                    stack</span>
+                                <span class="bg-primary/10 text-primary text-sm px-3 py-1 rounded-full">REST API</span>
+                            </div>
+                        </div>
+                        <div class="project-back w-full h-full p-6 flex flex-col justify-center items-center">
+                            <h3 class="text-xl font-bold text-white mb-4">Blog App</h3>
+                            <p class="text-gray-300 text-center mb-6">Interactive blogging platform featuring user
+                                engagement through comments and post reactions.</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-primary text-white px-4 py-2 rounded-full text-sm">Live Demo</a>
+                                <a href="https://github.com/Manvendra-23/Blog-App"
+                                    class="border border-primary text-primary px-4 py-2 rounded-full text-sm">Source
+                                    Code</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 animate-on-scroll">
+                <a href="#"
+                    class="inline-block gradient-bg text-white px-8 py-3 rounded-full font-medium shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105 pulse-glow">
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION: Modern animated contact form -->
+    <section id="contact" class="py-16 relative">
+        <div class="absolute inset-0 bg-gradient-to-br from-dark via-gray-900 to-dark opacity-50"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4 section-title animate-slide-up">
+                    Get In Touch
+                </h2>
+                <p class="text-gray-400 max-w-2xl mx-auto animate-slide-up delay-200">
+                    Have a project in mind or want to discuss potential opportunities? I'd love to hear from you!
+                </p>
+            </div>
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="glass-effect p-8 rounded-2xl shadow-xl animate-fade-in">
+                    <h3 class="text-2xl font-bold text-white mb-6">Contact Information</h3>
+
+                    <div class="space-y-6">
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1 text-primary icon-hover">
+                                <i class="fas fa-envelope text-2xl bounce"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-300">Email</h4>
+                                <a href="mailto:manvendrajdh31@gmail.com"
+                                    class="text-gray-400 hover:text-primary transition-colors duration-200">
+                                    contact@manvendrasingh.dev
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1 text-primary icon-hover">
+                                <i class="fas fa-phone text-2xl bounce"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-300">Phone</h4>
+                                <a href="tel:+916375621537"
+                                    class="text-gray-400 hover:text-primary transition-colors duration-200">
+                                    +91 6375621537
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start">
+                            <div class="mr-4 mt-1 text-primary icon-hover">
+                                <i class="fas fa-map-marker-alt text-2xl bounce"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold text-lg text-gray-300">Location</h4>
+                                <p class="text-gray-400">Jaipur, Rajasthan, India</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-10">
+                        <h4 class="font-bold text-lg text-gray-300 mb-4">Follow Me</h4>
+                        <div class="flex space-x-4">
+                            <a href="https://github.com/Manvendra-23"
+                                class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-gray-700 hover:text-white transition duration-300 icon-hover">
+                                <i class="fab fa-github text-xl"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/manvendra-singhshekhawat"
+                                class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-blue-600 hover:text-white transition duration-300 icon-hover"
+                                target="_blank" rel="noopener noreferrer">
+                                <i class="fab fa-linkedin-in text-xl"></i>
+                            </a>
+
+                            <a href="https://x.com/Mansaa23?t=EXz_f2MEc2mIyej9Kz0DQA&s=09"
+                                class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-blue-400 hover:text-white transition duration-300 icon-hover">
+                                <i class="fab fa-twitter text-xl"></i>
+                            </a>
+                            <a href="https://www.instagram.com/mss_23_04?igsh=MW82b3F1a3V5bGk4YQ=="
+                                class="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center text-gray-300 hover:bg-purple-600 hover:text-white transition duration-300 icon-hover">
+                                <i class="fab fa-instagram text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="glass-effect p-8 rounded-2xl shadow-xl animate-zoom-in">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 font-medium mb-2">Your Name</label>
+                            <input type="text" id="name"
+                                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-4 focus:ring-primary focus:border-transparent text-white input-animate transition-all duration-300"
+                                placeholder="John Doe">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-gray-300 font-medium mb-2">Your Email</label>
+                            <input type="email" id="email"
+                                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-4 focus:ring-primary focus:border-transparent text-white input-animate transition-all duration-300"
+                                placeholder="john@example.com">
+                        </div>
+
+                        <div>
+                            <label for="subject" class="block text-gray-300 font-medium mb-2">Subject</label>
+                            <input type="text" id="subject"
+                                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-4 focus:ring-primary focus:border-transparent text-white input-animate transition-all duration-300"
+                                placeholder="Project Inquiry">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-gray-300 font-medium mb-2">Your Message</label>
+                            <textarea id="message" rows="5"
+                                class="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:outline-none focus:ring-4 focus:ring-primary focus:border-transparent text-white input-animate transition-all duration-300"
+                                placeholder="Hello, I would like to talk about..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="gradient-bg text-white w-full py-3 rounded-lg font-medium shadow-lg hover:shadow-xl transition duration-300 transform hover:scale-105 hover:brightness-110 animate-slide-up delay-400">
+                            <span class="flex items-center justify-center">
+                                <i class="fas fa-paper-plane mr-2"></i>
+                                Send Message
+                            </span>
+                        </button>
+                    </form>
+                    <div id="form-success" class="hidden mt-6 text-center text-green-400 font-bold animate-slide-up">
+                        <i class="fas fa-check-circle mr-2"></i> Message Sent Successfully!
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer
+        class="w-full bg-gradient-to-br from-slate-900 via-gray-900 to-indigo-900 relative overflow-hidden border-t border-gray-800">
+        
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+            <div class="absolute inset-0"
+                style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0); background-size: 20px 20px;">
+            </div>
+        </div>
+        
+        <div
+            class="absolute inset-0 bg-gradient-to-r from-transparent via-indigo-500/5 to-transparent pointer-events-none">
+        </div>
+        <div class="relative z-10">
+            <!-- Main Footer Content -->
+            <div class="px-6 py-8">
+                <div class="max-w-7xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                        <!-- Left-->
+                        <div
+                            class="flex flex-col md:flex-row items-center md:items-start space-y-2 md:space-y-0 md:space-x-4">
+                            <div class="flex items-center space-x-3 floating-animation">
+                                <div
+                                    class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg pulse-glow">
+                                    <span class="text-xl font-bold text-white">MS</span>
+                                </div>
+                                <div class="text-left">
+                                    <h3 class="text-xl font-bold text-white">Manvendra Singh Shekhawat</h3>
+                                    <p class="text-sm text-gray-400">Full Stack Developer</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Center-->
+                        <div class="flex justify-center">
+                            <div class="flex space-x-4">
+                                <a href="https://github.com/Manvendra-23"
+                                    class="social-icon w-12 h-12 rounded-full glass-effect flex items-center justify-center text-white hover:text-white group"
+                                    aria-label="GitHub">
+                                    <i
+                                        class="fab fa-github text-xl group-hover:scale-110 transition-transform duration-300"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/manvendra-singhshekhawat"
+                                    class="social-icon w-12 h-12 rounded-full glass-effect flex items-center justify-center text-white hover:text-white group"
+                                    aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                                    <i
+                                        class="fab fa-linkedin-in text-xl group-hover:scale-110 transition-transform duration-300"></i>
+                                </a>
+
+                                <a href="https://x.com/Mansaa23?t=EXz_f2MEc2mIyej9Kz0DQA&s=09"
+                                    class="social-icon w-12 h-12 rounded-full glass-effect flex items-center justify-center text-white hover:text-white group"
+                                    aria-label="Twitter">
+                                    <i
+                                        class="fab fa-twitter text-xl group-hover:scale-110 transition-transform duration-300"></i>
+                                </a>
+                                <a href="https://www.instagram.com/mss_23_04?igsh=MW82b3F1a3V5bGk4YQ=="
+                                    class="social-icon w-12 h-12 rounded-full glass-effect flex items-center justify-center text-white hover:text-white group"
+                                    aria-label="Instagram">
+                                    <i
+                                        class="fab fa-instagram text-xl group-hover:scale-110 transition-transform duration-300"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- Right -->
+                        <div class="flex flex-col items-end md:items-end justify-center space-y-2 h-full">
+                            <div>
+                                <a href="mailto:manvendrajdh31@gmail.com"
+                                    class="flex items-center space-x-2 text-white hover:text-indigo-400 transition-colors duration-300 hover-lift group">
+                                    <div
+                                        class="w-8 h-8 rounded-lg bg-indigo-500/20 flex items-center justify-center group-hover:bg-indigo-500/40 transition-colors duration-300">
+                                        <i class="fas fa-envelope text-sm"></i>
+                                    </div>
+                                    <span class="font-medium">contact@manvendrasingh.dev</span>
+                                </a>
+                            </div>
+                            <div>
+                                <div class="flex items-center space-x-2 text-gray-400">
+                                    <div class="w-8 h-8 rounded-lg bg-gray-500/20 flex items-center justify-center">
+                                        <i class="fas fa-map-marker-alt text-sm"></i>
+                                    </div>
+                                    <span class="font-medium">Jaipur, Rajasthan, India</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Bottom Bar -->
+            <div class="border-t border-gray-700/50 bg-gray-900/50 backdrop-blur-sm">
+                <div class="max-w-7xl mx-auto px-6 py-4">
+                    <div class="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0">
+                        <div class="flex items-center space-x-4">
+                            <span class="text-sm text-gray-400">© 2025 Manvendra Singh Shekhawat</span>
+                            <span class="hidden md:block w-1 h-1 bg-gray-600 rounded-full"></span>
+                            <span class="text-sm text-gray-400">All rights reserved</span>
+                        </div>
+                        <div class="flex items-center space-x-6 text-sm text-gray-400">
+                            <a href="#" class="hover:text-white transition-colors duration-300">Privacy Policy</a>
+                            <a href="#" class="hover:text-white transition-colors duration-300">Terms of Service</a>
+                            <div class="flex items-center space-x-2">
+                                <div class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                                <span>Available for work</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
