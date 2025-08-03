@@ -32,7 +32,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
-
 const observerOptions = {
   threshold: 0.1
 };
@@ -77,7 +76,7 @@ if (contactForm) {
     submitBtn.disabled = true;
 
     try {
-      const res = await fetch('/api/contact', {
+      const res = await fetch('https://portfolio-v07g.onrender.com/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name, email, subject, message })
